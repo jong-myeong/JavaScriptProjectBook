@@ -1,0 +1,33 @@
+#calendar_wrap {
+    background: #333333;
+    width: 350px;
+    text-align: center;
+}
+
+caption {
+    font-size: 1.5em;
+    color: #ffa500;
+    padding: 10px;
+}
+
+table, th, td {
+    color: #ffffff;
+    border: 1px solid #666666;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 30px;
+    padding: 10px;
+}
+
+th:first-child, td:first-child {
+    color: red;
+}
+
+#prev, #next {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px;
+}
