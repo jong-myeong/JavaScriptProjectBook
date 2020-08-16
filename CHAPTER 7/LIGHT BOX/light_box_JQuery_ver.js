@@ -1,8 +1,8 @@
 $(function() {
     // 변수 선언 및 초기화
-    let $block = $('#block');                   // 라이트박스 배경
-    let $lightbox = $('#lightbox');
-    let $indicator = $('.indicator button');
+    var $block = $('#block');                   // 라이트박스 배경
+    var $lightbox = $('#lightbox');
+    var $indicator = $('.indicator button');
 
     // 라이트 박스 표시
     function lightbox_open(num) {
@@ -21,10 +21,10 @@ $(function() {
 
     // 이미지 전환 함수
     function change_img(val) {
-        let $imgs = $('figure > img');
+        var $imgs = $('figure > img');
 
         //  해당 이미지 제외 초기화
-        for (let i = 0; i < $imgs.length; i++) {
+        for (var i = 0; i < $imgs.length; i++) {
             $imgs.eq(i).removeAttr('class');
         }
         // 해당 이미지 active 클래스 추가
@@ -35,7 +35,7 @@ $(function() {
     $('img.thumb').click(function () {
 
         // this 는 선택한 이미지 객체
-        let img_num = $(this).index() - 1;
+        var img_num = $(this).index() - 1;
         lightbox_open(img_num)
     });
 
@@ -46,7 +46,7 @@ $(function() {
 
     // 인디케이터 클릭 시 click 이벤트 => 라이트 박스 이미지 변경
     $indicator.click(function () {
-        let img_num = $(this).index();
+        var img_num = $(this).index();
         change_img(img_num);
     });
 });

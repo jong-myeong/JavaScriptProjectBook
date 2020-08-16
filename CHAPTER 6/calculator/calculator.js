@@ -1,8 +1,8 @@
 // 변수 선언
-let calculator = document.forms['cal'];
-let input = calculator.getElementsByTagName('input');
-let clear_btn = document.getElementsByClassName('clear_btn')[0];
-let result_btn = document.getElementsByClassName('result_btn')[0];
+var calculator = document.forms['cal'];
+var input = calculator.getElementsByTagName('input');
+var clear_btn = document.getElementsByClassName('clear_btn')[0];
+var result_btn = document.getElementsByClassName('result_btn')[0];
 
 // 계산기 초기화(clear)
 function clear() {
@@ -21,8 +21,8 @@ function calcInput(value) {
 
 // 계산 결과 처리 함수
 function calcOutput() {
-    let result = document.forms['cal']['result'];
-    let calcResult = eval(result.value);
+    var result = document.forms['cal']['result'];
+    var calcResult = eval(result.value);
     // 결과 창에 표시
     calculator['result'].value = calcResult;
 }
@@ -31,7 +31,7 @@ function calcOutput() {
 // -----------------------
 // 숫자 및 사칙 연산 버튼
 // 문서 내 모든 input 요소에 클릭 이벤트 처리를 위한 이벤트 핸들러 적용을 위해 반복문 실행
-for (let i = 0; i < input.length; i++) {
+for (var i = 0; i < input.length; i++) {
     // 숫자와 사칙 연산자만 입력 처리
     if (input[i].value != '=' && input[i].value != 'clear') {
         input[i].onclick = function () {
