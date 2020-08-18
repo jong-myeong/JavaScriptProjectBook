@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="map.css">
+    <title>MAP</title>
+</head>
+<body>
+    <header>
+        <h1>PROJECT 6 : MAP</h1>
+        <nav>
+            <span><a href="#">Home</a></span>
+            <span><a href="#">About</a></span>
+            <span><a href="#">Contact Us</a></span>
+        </nav>
+    </header>
+    <main> 
+        <figure class="banner">
+            <div class="figure_header">
+                <h2>Contact us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+        </figure>	
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolorem quisomnis nam quas sint assumenda id adipisci veritatis totam.</p>
+                <div id="map"></div>
+            </article>
+            <aside>
+                <form action="">
+                    <fieldset>
+                        <legend>Send us Email</legend>
+                        <div class="form-group">
+                            <label for="name">Name</label>	
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="msg">Message</label>
+                            <textarea name="msg" id="msg" cols="30" rows="8"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button>SEND</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </aside>
+        </section>
+    </main>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJE1f5W4unYsAFVeE-owB5a72bxsb0vnI&callback=initMap&libraries=&v=weekly"async defer>
+    </script>
+    <script src="map.js"></script>
+</body>
+</html>

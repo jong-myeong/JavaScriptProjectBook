@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+header {
+    width: 960px;
+    height: 80px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+header>h1 {
+    float: left;
+    margin-top: 20px;
+}
+
+header>nav {
+    float: right;
+    margin-top: 45px;
+}
+
+header nav a {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+main figure.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 960px;
+    height: 180px;
+    margin: 0 auto;
+    background: #69f;
+    margin-bottom: 20px;
+}
+
+main figure.banner>.figure_header {
+    width: 600px;
+    text-align: center;
+    color: white;
+}
+
+main figure.banner>.figure_header>h2 {
+    font-size: 2.5em;
+}
+
+main>section {
+    width: 960px;
+    margin: 0 auto;
+}
+
+main>section>article {
+    width: 66%;
+    overflow: hidden;
+    float: left;
+}
+
+main>section>article>#map {
+    width: 100%;
+    height: 500px;
+    background-color: #ccc;
+}
+
+main>section>article p {
+    margin-bottom: 20px;
+}
+
+main>section>aside {
+    float: right;
+    width: 34%;
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 0;
+}
+
+fieldset {
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+legend {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+}
+
+input, textarea {
+    border: none;
+    background: #ddd;
+    padding: 10px;
+    resize: none;
+}
+
+label, input, textarea {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #fe6081;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+}
+
+button:hover {
+    background: #ff80ab;
+}
