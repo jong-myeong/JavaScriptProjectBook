@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+    <title>WEATHER</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="weather_widget.css">
+</head>
+
+<body>
+    <div id="weather_info">
+        <h1 class="city"></h1>
+
+        <section>
+            <p class="weather_id"></p>
+            <figure class="icon"></figure>
+            <p class="temp"></p>
+            <aside>
+                <p class="temp_max"></p>
+                <p class="temp_min"></p>
+            </aside>
+        </section>
+        <img src="loading.gif" alt="loading" class="load_img">
+    </div>
+
+    <script src="weather_widget.js"></script>
+</body>
+</html>

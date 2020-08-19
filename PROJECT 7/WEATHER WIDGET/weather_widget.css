@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    font-weight: normal;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+body {
+    color: #333;
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+#weather_info {
+    position: relative;
+    width: 100%;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #eee;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+h1 {
+    background: #666;
+    padding: 10px;
+    font-size: 1.8em;
+    text-align: center;
+    opacity: 0.8;
+}
+
+section {
+    overflow: hidden;
+    color: rgb(146, 128, 128);
+    text-shadow: 1px 1px 1px #999;
+    padding: 10px 20px;
+}
+
+section>.weather_id {
+    text-align: left;
+    padding-left: 20px;
+}
+
+section>figure, section>.temp {
+    float: left;
+    width: 33.3%;
+}
+
+section>figure>img {
+    width: 80px;
+}
+
+section>.temp {
+    font-size: 3.4em;
+}
+
+aside {
+    overflow: hidden;
+}
+
+aside>p {
+    font-size: 1.8em;
+    text-align: right;
+}
+
+/* 로딩이미지 */
+#weather_info .load_img {
+    width: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
+}
