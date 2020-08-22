@@ -42,9 +42,8 @@ $(function() {
         },
 
         // 메모 저장 메서드
-        save : function(current_memo) {
-            var idx = localStorage.length;          // 저장된 글 수
-            var txt = current_memo.val();           // 작성 중인 글
+        save : function(currentMemo) {
+            var txt = currentMemo.val();           // 작성 중인 글
 
             // 작성 중인 글이 있으면 저장
             if (txt !== '') {
@@ -54,35 +53,32 @@ $(function() {
         },
 
         // 메모 목록 및 읽기 메서드
-        get : function list_storage(current_memo) {
-            var key;
-            var l = localStorage.length;                        // 총 스토리지 길이
-            var del_icon = `<i class="fa fa-trash"></i>`;       // 삭제 아이콘
+        get : function listStorage(currentMemo) {
+            var storageLength = localStorage.length;           // 총 스토리지 길이
+            var delIcon = '<i class="fa fa-trash"></i>';       // 삭제 아이콘
 
-            // empty 메서드 없애보기
-            current_memo.find('ol').empty();        // 목록 초기화
-            current_memo.toggleClass('active');     // 목록 토글
+            currentMemo.find('ol').empty();        // 목록 초기화
+            currentMemo.toggleClass('active');     // 목록 토글
 
             // 현재 메모장(current_memo)의 사이드바에 파일 목록 표시
-            for (var i = 0; i < l; i++) {
-                // key를 함수에서 정의 안 하고 for에서 정의하면 어떻게 되는지 확인하기
-                key = localStorage.key(i);
-                current_memo.find('ol').append(`<li>${key}${del_icon}</li>`); 
+            for (var i = 0; i < storageLength; i++) {
+                var key = localStorage.key(i);
+                currentMemo.find('ol').append(`<li>${key}${delIcon}</li>`); 
             }
 
             // 목록을 클릭 시 메모 읽어 오기
-            current_memo.find('li').click(function() {
-                var getData = $(this).text();               // 목록의 글 제목 읽음
-                var txt = localStorage.getItem(getData);
-                current_memo.toggleClass('acitve');         // 목록창 닫기
-                current_memo.prev('.txt').val(txt);         // 내용 표시
+            currentMemo.find('li').click(function() {
+                var txtTitle = $(this).text();             // 목록의 글 제목 읽음
+                var txt = localStorage.getItem(txtTitle);
+                currentMemo.toggleClass('acitve');         // 목록창 닫기
+                currentMemo.prev('.txt').val(txt);         // 내용 표시
             });
 
             // 목록 삭제 버튼
-            current_memo.find('li > i').click(function() {
-                var key = $(this).parent().text();
-                var ok = confirm('해당 메모를 삭제할까요?');
-                if (ok) {
+            currentMemo.find('li > i').click(function() {
+                var key = $(this).parent().text();      // 목록의 제목(key)을 읽음
+                var delCheck = confirm('해당 메모를 삭제할까요?');
+                if (delCheck) {
                     localStorage.removeItem(key);
                 }
             });
@@ -97,19 +93,47 @@ $(function() {
 
     // 메모장 저장 버튼
     $('#sticky_wrap').on('click', '.save', function() {
-        var current_memo = $(this).parent().siblings('.txt');       // 글 영역 선택
-        Sticky.save(current_memo);
+        var currentMemo = $(this).parent().siblings('.txt');       // 글 영역 선택
+        Sticky.save(currentMemo);
     });
 
     // 메모장 목록 버튼
     $('#sticky_wrap').on('click', '.get', function() {
-        var current_memo = $(this).parents('.top_nav').siblings('.side_nav');
-        console.log($(this).parent('.top_nav'));
-        Sticky.get(current_memo);
+        var currentMemo = $(this).parents('.top_nav').siblings('.side_nav');
+        Sticky.get(currentMemo);
     });
 
-    // 메모 닫기 버튼
+    // 메모장 닫기 버튼
     $('#sticky_wrap').on('click', '.del', function() {
-        var current_memo = $(this).parents('.sticky').remove();     // 메모장 객체 제거
+        var currentMemo = $(this).parents('.sticky').remove();     // 메모장 객체 제거
     });
-})
+
+    /* ------------------------------------------------------------ */
+    // 마우스가 메모장 상단에 위치하면 드래그 활성화
+    $('#sticky_wrap').on('mouseover', '.top_nav', function() {
+        $(this).parent().draggable();
+    });
+
+    // 터치 입력
+    $('#sticky_wrap').on('touchstart mousedown', '.sticky', function() {
+        $('.sticky').css('zIndex', '0');
+        $(this).css('zIndex', '99');        // 드래그 시 메모장 표시 우선 순위 결정
+    });
+
+    $('#sticky_wrap').on('touchmove', '.top_nav', function(e) {
+        var $sticky = $(this).parent();             // 메모장 객체
+        var event = e.originalEvent;                // 자바스크립트 이벤트로 접근
+        var touchobj = event.changedTouches[0];     // 터치 이벤트 객체
+
+        // 현재 손가락 위치
+        var x = parseInt(touchobj.clientX),
+            y = parseInt(touchobj.clientY),
+            ex = x - 125,
+            ey = y - 16;
+
+        // 메모장 위치 지정
+        $sticky.css('left', `${ex}px`);
+        $sticky.css('top', `${ey}px`);
+    });
+
+});
