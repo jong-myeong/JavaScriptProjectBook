@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+/* 레이아웃 */
+.grid {
+    width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 10px 50px 30px 50px;
+    border: 2px solid #EED0DC;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #cbcbcb;
+}
+
+.grid h1 {
+    color: #333;
+    font-size: 2.4em;
+    text-align: center;
+}
+
+/* 문제 영역 */
+#quiz {
+    text-align: center;
+}
+
+.grid #question {
+    font-size: 24px;
+    background-color: #C34C74;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 2em;
+    border-radius: 15px;
+    text-align: left;
+}
+
+/* 버튼 영역 */
+.buttons {
+    padding: 30px 20px;
+    border: 2px solid #EED0DC;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #EED0DC;
+    color: #333;
+    width: 250px;
+    font-size: 16px;
+    border: 1px solid #ffe3ed;
+    border-radius: 15px;
+    margin: 10px 40px 20px 0px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.btn:nth-child(2n) {
+    margin-right: 0;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #C34C74;
+    color: white;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+/* 진행 정보 */
+#progress {
+    color: #2b2b2b;
+    font-size: 20px;
+}
